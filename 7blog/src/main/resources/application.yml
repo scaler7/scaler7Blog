@@ -1,0 +1,62 @@
+spring:
+  druid:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/blog?useUnicode=true&characterEncoding=utf8&useSSL=true&serverTimezone=UTC
+    username: root
+    password: root
+    initialSize: 3 
+    minIdle: 3 
+    maxActive: 30 
+    maxWait: 15000 
+    validationQuery: SELECT 'x'
+  
+  thymeleaf:
+    cache: false
+    enabled: true
+   
+  redis:
+    host: 114.55.27.97
+    port: 6379
+    jedis:
+      pool:
+        max-active: 10000
+        max-wait: 5000
+        max-idle: 1000
+        min-idle: 100
+    
+          
+
+mybatis-plus:
+  mapper-locations:
+  - classpath:mapping/*/*Mapper.xml #mapper的xml路径
+  type-aliases-package: com.scaler7.domain
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    
+#分页
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+  #retrunPageInfo: check
+  
+shiro:
+  hash-algorithm-name: md5
+  hash-iterations: 2
+  login-url: /login.html
+  target-bean-name: shiroFilter
+  target-filter-lifecycle: true
+  unauthorized-url: /error/403.html
+  anon-urls:
+  - /admin/login*
+  - /login.html*
+  - /resources/**
+  - /index.html*
+  - /
+  - /blog/**
+  authc-urls:
+  - /**
+#服务器端口号
+server:
+  port: 80

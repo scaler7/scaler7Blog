@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.scaler7.admin.mapper.CategoriesMapper">
+	<update id="increaseCategoriesCount">
+		UPDATE b_categories SET `count` = `count`+1 WHERE `name` = #{name}
+	</update>
+	
+	<update id="decreaseCategoriesCount">
+		UPDATE b_categories SET `count` = `count`-1 WHERE `name` = #{name}
+	</update>
+</mapper>

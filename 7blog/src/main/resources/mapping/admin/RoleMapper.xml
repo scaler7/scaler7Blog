@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.scaler7.admin.mapper.RoleMapper">
+	<resultMap type="com.scaler7.admin.domain.Role" id="RoleResultMap">
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="state" property="state" />
+	</resultMap>
+
+	<sql id="RoleColmuns">r.id,r.name,r.state</sql>
+
+	<select id="selectRolesByUserId" resultMap="RoleResultMap">
+		SELECT
+		<include refid="RoleColmuns"></include>
+		FROM u_user u
+		INNER JOIN u_user_role ur
+		INNER JOIN u_role r
+		ON u.`id` = ur.`u_id`
+		AND ur.`r_id` = r.`id`
+		WHERE u.id = #{id}
+	</select>
+
+	<delete id="delRolePermissionByRoleId">
+		delete from sys_role_permission where rid = #{id}
+	</delete>
+
+	<insert id="saveRolePermissionByPid">
+		insert into
+		sys_role_permission (rid,pid) value (#{rid},#{pid})
+	</insert>
+</mapper>
