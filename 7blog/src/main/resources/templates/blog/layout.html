@@ -8,9 +8,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-    <!-- <link href="https://cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css"/>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css"/> -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     <link th:href="@{/resources/blog/css/main.css}" rel="stylesheet" type="text/css"/>
     <meta name="keywords" content="Scaler7"/>
     <link rel="shortcut icon" type="image/x-icon" th:href="@{/resources/blog/image/favicon.ico}"/>
@@ -68,7 +68,7 @@
             </div>
         </main>
         <!--底部footer-->
-       <!--  <div th:replace="blog/fragments/footer::footer(${commons.site_record()})"></div> -->
+        <div th:replace="blog/fragments/footer::footer(${@commons.site_record()})"></div>
 
         <div class="back-to-top">
             <i class="fa fa-arrow-up"></i> <span id="scrollpercent"><span>0</span>%</span>

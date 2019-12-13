@@ -1,5 +1,7 @@
 package com.scaler7.common;
 
+import java.util.Random;
+
 import org.springframework.stereotype.Component;
 import com.baomidou.mybatisplus.core.toolkit.ArrayUtils;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
@@ -47,8 +49,9 @@ public final class AdminCommon {
      * @return
      */
     public static String rand_color() {
-        //int r = Tools.rand(0, COLORS.length - 1);
-        return COLORS[0];
+        Random random = new Random();
+        int i = random.nextInt(COLORS.length);
+        return COLORS[i];
     }
 	
 }

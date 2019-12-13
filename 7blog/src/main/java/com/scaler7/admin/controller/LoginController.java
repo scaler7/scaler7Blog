@@ -38,9 +38,9 @@ public class LoginController {
 			subject.login(token);
 			ActiveUser activeUser = (ActiveUser) subject.getPrincipals().getPrimaryPrincipal();
 			User user = activeUser.getUser();
-			session.setAttribute("user", user);
+			session.setAttribute(Constant.USER, user);
 			// 写入日志
-			loginlogService.save(new Loginlog(
+			loginlogService.saveLoginlog(new Loginlog(
 					0, // id 
 					user.getName(), // 登陆用户名 
 					WebUtil.getRequest().getRemoteAddr(), // 登陆ip

@@ -31,7 +31,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
-		
+
 		<!--shrio和thymeleaf集成的扩展依赖，为了能在页面上使用xsln:shrio的标签 -->
 		<dependency>
 			<groupId>com.github.theborakompanioni</groupId>
@@ -75,7 +75,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		
+
 		<!-- shiro -->
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
@@ -177,39 +177,39 @@
 			<artifactId>qiniu-java-sdk</artifactId>
 			<version>7.2.11</version>
 		</dependency>
-		
-		<!--markdown处理-->
-        <dependency>
-            <groupId>com.atlassian.commonmark</groupId>
-            <artifactId>commonmark</artifactId>
-            <version>0.8.0</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>com.atlassian.commonmark</groupId>
-            <artifactId>commonmark-ext-gfm-tables</artifactId>
-            <version>0.8.0</version>
-        </dependency>
-        
-        <!--过滤emoji字符-->
-        <dependency>
-            <groupId>com.vdurmont</groupId>
-            <artifactId>emoji-java</artifactId>
-            <version>3.2.0</version>
-        </dependency>
-        
-        <!-- redis -->
-        <dependency>
-        	<groupId>org.springframework.boot</groupId>
-        	<artifactId>
+
+		<!--markdown处理 -->
+		<dependency>
+			<groupId>com.atlassian.commonmark</groupId>
+			<artifactId>commonmark</artifactId>
+			<version>0.8.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.atlassian.commonmark</groupId>
+			<artifactId>commonmark-ext-gfm-tables</artifactId>
+			<version>0.8.0</version>
+		</dependency>
+
+		<!--过滤emoji字符 -->
+		<dependency>
+			<groupId>com.vdurmont</groupId>
+			<artifactId>emoji-java</artifactId>
+			<version>3.2.0</version>
+		</dependency>
+
+		<!-- redis -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>
         		spring-boot-starter-data-redis-reactive
         	</artifactId>
-        </dependency>
-        <dependency>
-        	<groupId>io.projectreactor</groupId>
-        	<artifactId>reactor-test</artifactId>
-        	<scope>test</scope>
-        </dependency>
+		</dependency>
+		<dependency>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -217,6 +217,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<skipTests>true</skipTests>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

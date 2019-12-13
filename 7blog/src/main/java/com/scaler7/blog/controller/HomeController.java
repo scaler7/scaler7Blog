@@ -20,6 +20,7 @@ import com.scaler7.admin.service.ICommentsService;
 import com.scaler7.admin.service.ILinkService;
 import com.scaler7.admin.vo.TagsVO;
 import com.scaler7.utils.CommonUtil;
+import com.scaler7.utils.WebUtil;
 
 @RequestMapping("")
 @Controller
@@ -44,7 +45,7 @@ public class HomeController {
 		PageInfo<Article> articles = articleService.getArticleOnePage(pageNum, pageSize);
 		List<Link> links = linkService.getLinkList(null);
 		modelAndView.addObject("articles", articles);
-		modelAndView.addObject("links", links);
+		WebUtil.getSession().setAttribute("links", links);
 		modelAndView.setViewName("blog/home");
 		return modelAndView;
 	}

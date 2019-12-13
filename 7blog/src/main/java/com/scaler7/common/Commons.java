@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import org.apache.commons.lang3.StringUtils;
@@ -12,9 +13,13 @@ import org.commonmark.Extension;
 import org.commonmark.ext.gfm.tables.TablesExtension;
 import org.commonmark.node.Node;
 import org.commonmark.renderer.html.HtmlRenderer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.github.pagehelper.PageInfo;
+import com.scaler7.admin.domain.Setting;
+import com.scaler7.admin.service.ISettingService;
 import com.vdurmont.emoji.EmojiParser;
 
 /**
@@ -27,6 +32,14 @@ import com.vdurmont.emoji.EmojiParser;
  */
 @Component(value = "commons")
 public final class Commons {
+	
+	
+	private static ISettingService settingService;
+	
+	@Autowired
+	public Commons(ISettingService settingService) {
+		Commons.settingService = settingService;
+	}
 
 	/**
 	 * 
@@ -125,12 +138,20 @@ public final class Commons {
     * @return Map<String,String>
     * @throws
      */
-    public static Map<String, String> social() {
+    public static Map<String, String> setting() {
+    	List<Setting> settingList = settingService.getSettingList();
         Map<String, String> map = new HashMap<>();
-        map.put("csdn", WebConstant.CSDN.getSocialUrl());
-        map.put("github", WebConstant.GITHUB.getSocialUrl());
-        map.put("gitee", WebConstant.GITEE.getSocialUrl());
+        if(CollectionUtils.isNotEmpty(settingList)) {
+        	for (Setting setting : settingList) {
+				map.put(setting.getSkey(), setting.getSvalue());
+			}
+        }
         return map;
+    }
+    
+    public static String site_record() {
+    	Map<String, String> setting = setting();
+    	return setting.get("site_record");
     }
     /**
      * 
