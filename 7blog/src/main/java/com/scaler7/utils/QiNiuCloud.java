@@ -25,12 +25,12 @@ public class QiNiuCloud {
 	/**
 	 * 密钥凭证
 	 */
-	private static final String ACCESS_KEY = "65m-T8UW90ZXJFNxist2cSo0WsrSmIF6sTL8W4EY";
-	private static final String SECRET_KEY = "WKTG1MjMc2OJbwG8dnJGbKU1LD3HmzasWEbBXPqP";
+	private static final String ACCESS_KEY = "**************";
+	private static final String SECRET_KEY = "**************";
 	/**
 	 * 仓库
 	 */
-	private static final String BUCKET = "scaler7";
+	private static final String BUCKET = "*****";
 
 	/**
 	 * 七牛外网访问地址
